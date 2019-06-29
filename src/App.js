@@ -1,25 +1,54 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import styled from 'styled-components'
+import Header from './molecules/Header'
+import Main from './molecules/Main'
+import Footer from './molecules/Footer'
+import SidePanel from './atoms/sidepanel'
+import dataScreenShot from './assets/Visualize.png'
+import loginScreenShot from './assets/login.png'
+
+
+const SAppWrapper = styled.div`
+ font-family: 'Poiret One', cursive;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  background: #f1f1f1 
+`
+const SLeftWrapper =styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 45%  
+  `
+
+const SRightWrapper =styled.div`
+    width: 55%
+    display: flex;
+    background: #fafafa
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+ 
+ `
+ 
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <SAppWrapper className="App">
+      <SLeftWrapper className='leftDiv'> 
+        <SidePanel>{loginScreenShot}</SidePanel>
+        <SidePanel>{dataScreenShot}</SidePanel>
+      </SLeftWrapper>
+      <SRightWrapper className = 'rightDiv'>
+        <Header></Header>
+        <Main></Main>
+        <Footer></Footer>
+    </SRightWrapper>
+
+    </SAppWrapper>
   );
 }
 
